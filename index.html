@@ -30,7 +30,7 @@ body{margin:0;padding:0 env(safe-area-inset-right,0px) 0 env(safe-area-inset-lef
 .row{display:grid;grid-template-columns:1fr auto;gap:10px}
 .fax{display:flex;flex-direction:column;justify-content:center;padding:10px 14px;border-radius:14px;background:var(--bg);color:var(--ink);min-height:64px}
 .fax small{font-size:.8rem;color:var(--muted)} .fax span{font-size:.95rem;font-weight:500;white-space:nowrap}
-.btn.static{background:var(--bg);color:var(--ink);cursor:text;user-select:text;-webkit-user-select:text}
+.btn.static{background:var(--bg);color:var(--ink);user-select:text;-webkit-user-select:text}
 .btn.static:active{transform:none}
 .btn.static{justify-content:center;text-align:center}
 .btn.static b{font-size:clamp(.92rem,4.3vw,1.08rem)}
@@ -69,10 +69,10 @@ body{margin:0;padding:0 env(safe-area-inset-right,0px) 0 env(safe-area-inset-lef
     </a>
     <div class="fax"><small>팩스</small><span>051-506-3619</span></div>
     </div>
-    <div class="btn static lp" data-copy="jangwon@lawfirmjangwon.com">
+    <a class="btn static lp" data-copy="jangwon@lawfirmjangwon.com" href="mailto:jangwon@lawfirmjangwon.com">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-      <span><b>jangwon@lawfirmjangwon.com</b><small>길게 눌러 복사</small></span>
-    </div>
+      <span><b>jangwon@lawfirmjangwon.com</b><small>길게 눌러 복사, 단 짧게 누르면 메일 쓰기</small></span>
+    </a>
     <a class="btn lp" data-copy="(47511) 부산 연제구 법원로 42, 대한빌딩 3층" href="https://place.map.kakao.com/672218575" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       <span><b>찾아오시는 길<span class="park">부속 유료 주차장</span></b><small><span class="zip">47511</span><span class="addr">부산 연제구 법원로 42, 대한빌딩 3층</span><span class="hint">길게 눌러 복사, 단 짧게 누르면 카카오맵 연결</span></small></span>
