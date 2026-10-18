@@ -9,30 +9,48 @@
 :root{--bg:#eef0f2;--paper:#fff;--ink:#1d2733;--muted:#5b6672;--line:#d5dade;--band:#2b3542;--bandText:#f3f1ec;--bronze:#8a6a3a;--btn:#2b3542}
 @media (prefers-color-scheme:dark){:root{--bg:#14181d;--paper:#1d232a;--ink:#e7eaee;--muted:#9aa4ae;--line:#323b45;--band:#0f141a;--bandText:#ece8df;--bronze:#c49a5c;--btn:#3a4757;color-scheme:dark}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.5}
-.wrap{max-width:440px;margin:0 auto;min-height:100vh;background:var(--paper);padding-bottom:env(safe-area-inset-bottom,0px)}
-.top{background:var(--band);color:var(--bandText);padding:calc(28px + env(safe-area-inset-top,0px)) 22px 26px}
-.firm{display:flex;align-items:center;gap:14px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:1.9rem;letter-spacing:.14em;line-height:1.2}
+body{margin:0;padding:0 env(safe-area-inset-right,0px) 0 env(safe-area-inset-left,0px);background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.5}
+.wrap{max-width:440px;margin:max(10px,env(safe-area-inset-top,0px)) auto max(10px,env(safe-area-inset-bottom,0px));background:var(--paper);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;width:calc(100% - 20px)}
+.top{background:var(--band);color:var(--bandText);padding:24px 16px 20px;text-align:center}
+.firm{display:flex;align-items:center;justify-content:center;gap:12px;font-family:"Noto Serif KR",serif;font-weight:700;font-size:clamp(1.45rem,7.4vw,1.9rem);letter-spacing:.1em;line-height:1.2;white-space:nowrap}
 .mark{width:48px;height:48px;border-radius:50%;border:2px solid var(--bronze);display:grid;place-items:center;letter-spacing:.02em;font-size:.95rem;flex:none}
-.person{margin-top:20px;display:flex;align-items:baseline;gap:10px}
+.person{margin-top:14px;display:flex;align-items:baseline;justify-content:center;gap:10px;white-space:nowrap}
 .role{font-size:.95rem;opacity:.8}
-.name{font-family:"Noto Serif KR",serif;font-weight:700;font-size:1.25rem;letter-spacing:.3em;line-height:1.2}
-.btns{display:flex;flex-direction:column;gap:12px;padding:22px 18px 8px}
-.btn{display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 16px;border-radius:14px;background:var(--btn);color:#fff;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.name{font-family:"Noto Serif KR",serif;font-weight:700;font-size:1.25rem;letter-spacing:.02em;line-height:1.2}
+.btns{display:flex;flex-direction:column;gap:10px;padding:14px 12px 14px}
+.btn{display:flex;align-items:center;gap:12px;min-height:60px;padding:10px 14px;border-radius:14px;background:var(--btn);color:#fff;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .btn:active{transform:scale(.98)}
 .btn:focus-visible{outline:3px solid var(--bronze);outline-offset:2px}
 .btn svg{width:28px;height:28px;flex:none}
 .btn b{display:block;font-size:1.08rem;font-weight:700}
-.btn small{display:block;font-size:.86rem;opacity:.85;word-break:break-all}
+.btn small{display:block;font-size:.86rem;opacity:.85;white-space:nowrap}
+.btn b{white-space:nowrap}
+.btn > span{min-width:0}
 .btn.sub{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
 .row{display:grid;grid-template-columns:1fr auto;gap:10px}
 .fax{display:flex;flex-direction:column;justify-content:center;padding:10px 14px;border-radius:14px;background:var(--bg);color:var(--ink);min-height:64px}
 .fax small{font-size:.8rem;color:var(--muted)} .fax span{font-size:.95rem;font-weight:500;white-space:nowrap}
 .btn.static{background:var(--bg);color:var(--ink);cursor:text;user-select:text;-webkit-user-select:text}
 .btn.static:active{transform:none}
-.btn.static b{word-break:break-all}
+.btn.static{justify-content:center;text-align:center}
+.btn.static b{font-size:clamp(.92rem,4.3vw,1.08rem)}
 .zip{display:block;font-size:.72rem;opacity:.75;letter-spacing:.04em}
 .park{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:999px;border:1px solid currentColor;font-size:.74rem;font-weight:500;vertical-align:2px;opacity:.9}
+
+.lp{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.lp.hold{outline:3px solid var(--bronze);outline-offset:2px}
+.hint{display:block;font-size:clamp(.66rem,3vw,.74rem);opacity:.75;margin-top:2px;white-space:nowrap}
+.addr{font-size:clamp(.8rem,3.7vw,.9rem)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:999px;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:.92}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;text-align:left}
+.cs{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:12px;text-decoration:none;color:#fff}
+.cs b{display:flex;align-items:baseline;gap:6px;font-size:1rem;white-space:nowrap}
+.cs b svg{align-self:center}
+.cs b i{font-style:normal;font-size:.68rem;font-weight:500;opacity:.9}
+.cs svg{width:18px;height:18px}
+.cs small{font-size:.72rem;opacity:.85;white-space:nowrap}
+.cs.t{background:#2f6fd1}.cs.s{background:#b4532a}
 </style>
 </head>
 <body>
@@ -40,6 +58,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","
   <header class="top">
     <div class="firm"><span class="mark">JW</span>법무법인 장원</div>
     <div class="person"><span class="role">대표변호사</span><span class="name">윤장원</span></div>
+    <div class="cases"><a class="cs t" href="https://www.scourt.go.kr/portal/information/events/search/search.jsp" target="_blank" rel="noopener"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 13-7.5 7.5a2.1 2.1 0 0 1-3-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>재판</b><small>법원 나의사건검색</small></a><a class="cs s" href="https://www.kics.go.kr" target="_blank" rel="noopener"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>수사<i>(중수청 제외)</i></b><small>KICS 형사사법포털</small></a></div>
   </header>
 
   <nav class="btns">
@@ -50,13 +69,13 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","
     </a>
     <div class="fax"><small>팩스</small><span>051-506-3619</span></div>
     </div>
-    <div class="btn static">
+    <div class="btn static lp" data-copy="jangwon@lawfirmjangwon.com">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-      <span><b>jangwon@lawfirmjangwon.com</b><small>이메일</small></span>
+      <span><b>jangwon@lawfirmjangwon.com</b><small>길게 눌러 복사</small></span>
     </div>
-    <a class="btn" href="https://place.map.kakao.com/672218575" target="_blank" rel="noopener">
+    <a class="btn lp" data-copy="(47511) 부산 연제구 법원로 42, 대한빌딩 3층" href="https://place.map.kakao.com/672218575" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <span><b>찾아오시는 길<span class="park">유료 주차장 있음</span></b><small><span class="zip">47511</span>부산광역시 연제구 법원로 42, 대한빌딩 3층</small></span>
+      <span><b>찾아오시는 길<span class="park">부속 유료 주차장</span></b><small><span class="zip">47511</span><span class="addr">부산 연제구 법원로 42, 대한빌딩 3층</span><span class="hint">길게 눌러 복사, 단 짧게 누르면 카카오맵 연결</span></small></span>
     </a>
     <a class="btn sub" href="법무법인%20장원.vcf" download="법무법인 장원.vcf">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
@@ -64,5 +83,31 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","
     </a>
   </nav>
 </div>
+<div class="toast" id="toast">복사했습니다</div>
+<script>
+(function(){
+  var toast=document.getElementById('toast'),tt;
+  function show(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1600)}
+  function copy(text){
+    function fallback(){var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,text.length);var ok=false;try{ok=document.execCommand('copy')}catch(e){}document.body.removeChild(ta);show(ok?'복사했습니다':'복사하지 못했습니다')}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){show('복사했습니다')},fallback)}else{fallback()}
+  }
+  document.querySelectorAll('.lp').forEach(function(el){
+    var timer=null,ready=false,used=false;
+    function start(){ready=false;used=false;clearTimeout(timer);timer=setTimeout(function(){ready=true;el.classList.add('hold');if(navigator.vibrate){try{navigator.vibrate(20)}catch(e){}}},550)}
+    function end(e){clearTimeout(timer);el.classList.remove('hold');if(ready){ready=false;used=true;if(e&&e.cancelable)e.preventDefault();copy(el.getAttribute('data-copy'))}}
+    function cancel(){clearTimeout(timer);ready=false;el.classList.remove('hold')}
+    el.addEventListener('touchstart',start,{passive:true});
+    el.addEventListener('touchend',end);
+    el.addEventListener('touchmove',cancel,{passive:true});
+    el.addEventListener('touchcancel',cancel);
+    el.addEventListener('mousedown',start);
+    el.addEventListener('mouseup',end);
+    el.addEventListener('mouseleave',cancel);
+    el.addEventListener('click',function(e){if(used){e.preventDefault();used=false}});
+    el.addEventListener('contextmenu',function(e){e.preventDefault()});
+  });
+})();
+</script>
 </body>
 </html>
